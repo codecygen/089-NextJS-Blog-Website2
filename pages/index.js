@@ -1,47 +1,27 @@
 import Welcome from "../components/home-page/Welcome";
 import FeaturedPosts from "../components/home-page/FeaturedPosts";
 
-const DUMMY_POSTS = [
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my first post in this website!',
-    date: '2022-10-05'
-  },
+// Read-from-Markdown-Split-Metadata-and-Actual-Markdown-Content
+import { getFeaturedPosts } from "../lib/posts.util";
 
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post2',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my second post in this website!',
-    date: '2022-10-06'
-  },
-
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post3',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my third post in this website!',
-    date: '2022-10-07'
-  },
-
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post4',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my first post in this website!',
-    date: '2022-10-08'
-  }
-];
-
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <>
       <Welcome />
-      <FeaturedPosts posts={DUMMY_POSTS} />
+      <FeaturedPosts posts={props.featured} />
     </>
   );
+};
+
+export const getStaticProps = async () => {
+  // Read-from-Markdown-Split-Metadata-and-Actual-Markdown-Content
+  const featuredPosts = getFeaturedPosts();
+
+  return {
+    props: {
+      featured: featuredPosts
+    }
+  };
 };
 
 export default HomePage;

@@ -1,43 +1,23 @@
 import AllPosts from "../../components/posts/AllPosts";
 
-const DUMMY_POSTS = [
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my first post in this website!',
-    date: '2022-10-05'
-  },
+// Read-from-Markdown-Split-Metadata-and-Actual-Markdown-Content
+import getAllPosts from "../../lib/posts.util";
 
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post2',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my second post in this website!',
-    date: '2022-10-06'
-  },
-
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post3',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my third post in this website!',
-    date: '2022-10-07'
-  },
-
-  {
-    slug: 'new-blog-post',
-    title: 'New Blog Post4',
-    image: 'new-blog-post.png',
-    exerpt: 'This will be my first post in this website!',
-    date: '2022-10-08'
-  }
-];
-
-const AllPostsPage = () => {
+const AllPostsPage = (props) => {
   return (
-    <AllPosts posts={DUMMY_POSTS} />
+    <AllPosts posts={props.all} />
   );
+};
+
+export const getStaticProps = async () => {
+  // Read-from-Markdown-Split-Metadata-and-Actual-Markdown-Content
+  const allPosts = getAllPosts();
+
+  return {
+    props: {
+      all: allPosts
+    }
+  };
 };
 
 export default AllPostsPage;

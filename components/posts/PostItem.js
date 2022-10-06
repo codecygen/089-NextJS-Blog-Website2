@@ -7,6 +7,7 @@ const PostItem = (props) => {
     const { title, image, exerpt, date, slug } = props.post;
 
     const formattedDate = new Date(date).toLocaleDateString('en-US', {
+        timeZone: 'UTC',
         day: 'numeric',
         month: 'long',
         year: 'numeric'
