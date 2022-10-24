@@ -13,13 +13,15 @@ const DUMMY_POST = {
   content: '# This is the first post!' 
 };
 
-const PostContent = () => {
-  const imagePath = `/images/posts/${DUMMY_POST.slug}/${DUMMY_POST.image}`;
+const PostContent = (props) => {
+  const { post } = props;
+
+  const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
   return (
     <article className={classes.content}>
-      <PostHeader title={DUMMY_POST.title} image={imagePath} />
-      <ReactMarkdown>{DUMMY_POST.content}</ReactMarkdown>
+      <PostHeader title={post.title} image={imagePath} />
+      <ReactMarkdown>{post.content}</ReactMarkdown>
     </article>
   );
 };
