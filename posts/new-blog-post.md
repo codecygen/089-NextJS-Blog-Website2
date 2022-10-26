@@ -11,6 +11,8 @@ isFeatured: true
 
 # This is a title
 
+![Photo](new-blog-post.png)
+
 LOREM IPSUM
 FONT GENERATOR
 IMAGES

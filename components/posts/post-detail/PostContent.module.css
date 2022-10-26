@@ -12,6 +12,10 @@
 .content p {
     color: var(--color-grey-800);
 }
+
+.content img {
+    max-width: 200px;
+}
   
 .content .image {
     margin: var(--size-4) auto;
