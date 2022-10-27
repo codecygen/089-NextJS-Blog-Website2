@@ -3,6 +3,15 @@ import ReactMarkdown from 'react-markdown';
 
 import Image from 'next/image';
 
+// react-syntax-higlighter-Code-Snippet-Styling
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+// react-syntax-higlighter-Code-Snippet-Styling
+// not react-syntax-highlighter/dist/esm/styles/prism
+// but cjs because the code will execute on the server side
+// atomDark is a theme.
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+
 import PostHeader from './PostHeader';
 
 import classes from './PostContent.module.css';
@@ -46,6 +55,21 @@ const PostContent = (props) => {
       }
 
       return <p>{paragraph.children}</p>;
+    },
+
+    // This section is used to control code snippet styling
+    // in React Markdown
+    // react-syntax-higlighter-Code-Snippet-Styling
+    // Needs another package called react-syntax-higlighter
+    code(code) {
+      const { language, value } = code;
+      return (
+        <SyntaxHighlighter
+          style={atomDark}
+          language={language}
+          children={value}
+        />
+      );
     }
   };
 
