@@ -10,22 +10,6 @@ const ContactForm = () => {
     const sendMessageHandler = (e) => {
         e.preventDefault();
 
-        // Can have client side entered data validation
-        // we already put required but still there could be
-        // validation.
-
-        // fetch('/api/contact', {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         email: enteredEmail, 
-        //         name: enteredName, 
-        //         message: enteredMessage
-        //     }), 
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // });
-
         fetch('/api/contact', {
             method: 'POST',
             body: JSON.stringify({
