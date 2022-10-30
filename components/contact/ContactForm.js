@@ -1,27 +1,94 @@
-import { useState } from 'react';
+// Front-End-Fetching-Error-Handling-Data-Verification-and-User-Notification
+
+import { useState, useEffect } from 'react';
 
 import classes from './ContactForm.module.css';
+import Notification from '../ui/notification';
 
 const ContactForm = () => {
     const [enteredEmail, setEnteredEmail] = useState('');
     const [enteredName, setEnteredName] = useState('');
     const [enteredMessage, setEnteredMessage] = useState('');
 
-    const sendMessageHandler = (e) => {
-        e.preventDefault();
+    const [requestStatus, setRequestStatus] = useState(); // 'pending', 'success', 'error'
+    const [requestError, setRequestError] = useState();
 
-        fetch('/api/contact', {
+    useEffect(() => {
+        if (requestStatus === 'success' || requestStatus === 'error') {
+            const timer = setTimeout(() => {
+                setRequestStatus(null);
+                setRequestError(null);
+            }, 3000);
+
+            return () => clearTimeout(timer);
+        }
+    }, [requestStatus]);
+
+    const sendContactData = async (contactDetails) => {
+        const response = await fetch('/api/contact', {
             method: 'POST',
-            body: JSON.stringify({
-                email: enteredEmail, 
-                name: enteredName, 
-                message: enteredMessage
-            }),
+            body: JSON.stringify(contactDetails),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Something went wrong!');
+        }
     };
+
+    const sendMessageHandler = async (e) => {
+        e.preventDefault();
+
+        const contactMessage = {
+            email: enteredEmail,
+            name: enteredName,
+            message: enteredMessage
+        };
+
+        setRequestStatus('pending');
+
+        try {
+            await sendContactData(contactMessage);
+            setRequestStatus('success');
+
+            setEnteredEmail('');
+            setEnteredName('');
+            setEnteredMessage('');
+        } catch (e) {
+            setRequestError(e.message);
+            setRequestStatus('error');
+        }
+    };
+
+    let notification;
+
+    if (requestStatus === 'pending') {
+        notification = {
+            status: 'pending',
+            title: 'Sending message...',
+            message: 'Your message is being sent!'
+        };
+    }
+
+    if (requestStatus === 'success') {
+        notification = {
+            status: 'success',
+            title: 'Success!',
+            message: 'Message sent successfully!'
+        };
+    }
+
+    if (requestStatus === 'error') {
+        notification = {
+            status: 'error',
+            title: 'Error!',
+            message: requestError
+        };
+    }
 
     return (
         <section className={classes.contact}>
@@ -32,7 +99,7 @@ const ContactForm = () => {
                         <label htmlFor="email">Your Email</label>
                         <input
                             type="email"
-                            id="email" 
+                            id="email"
                             required
                             value={enteredEmail}
                             onChange={e => setEnteredEmail(e.target.value)}
@@ -45,7 +112,7 @@ const ContactForm = () => {
                         <label htmlFor="name">Your Name</label>
                         <input
                             type="text"
-                            id="name" 
+                            id="name"
                             required
                             value={enteredName}
                             onChange={e => setEnteredName(e.target.value)}
@@ -58,7 +125,7 @@ const ContactForm = () => {
                         <label htmlFor="message">Your Message</label>
                         <textarea
                             id="message"
-                            rows="5" 
+                            rows="5"
                             required
                             value={enteredMessage}
                             onChange={e => setEnteredMessage(e.target.value)}
@@ -70,6 +137,14 @@ const ContactForm = () => {
                     <button>Send Message</button>
                 </div>
             </form>
+            {
+                notification &&
+                <Notification 
+                    status={notification.status} 
+                    title = {notification.title} 
+                    message = {notification.message}                
+                />
+            }
         </section>
     );
 };

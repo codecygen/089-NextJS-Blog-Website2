@@ -28,3 +28,7 @@ The npm package to do it is **gray-matter**.
 As stated in the keyword, if we search we can see gray-matter npm library has a property for ReactMarkdown component to pass Image component of NextJS so that we don't use classic image tag of HTML for better optimization.
 ## react-syntax-higlighter-Code-Snippet-Styling
 react-syntax-higlighter npm library is useful if you have a code snippet in your markdown file. The react-syntax-higlighter npm library will be used to style the code snippet when it is transformed into html.
+## Front-End-Fetching-Error-Handling-Data-Verification-and-User-Notification
+Front end data sending. This section is for contact info sending to the database. It covers all the error handling and user notification about if the data is already sent or if there has been an error. The data is also verified if the email and message sent correctly.
+## Back-End-Posting-Darta-to-Database-Error-Handling-Data-Verification
+Backend data sending. This section is for contact info sending to the database. It covers all the error handling about if the data is already sent or if there has been an error. The data is also verified if the email and message sent correctly.
