@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import Welcome from "../components/home-page/Welcome";
 import FeaturedPosts from "../components/home-page/FeaturedPosts";
 
@@ -7,6 +9,10 @@ import { getFeaturedPosts } from "../lib/posts.util";
 const HomePage = (props) => {
   return (
     <>
+      <Head>
+        <title>Aras' Blog</title>
+        <meta name="description" content="Web Development" />
+      </Head>
       <Welcome />
       <FeaturedPosts posts={props.featured} />
     </>

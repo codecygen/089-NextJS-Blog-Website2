@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import AllPosts from "../../components/posts/AllPosts";
 
 // Read-from-Markdown-Split-Metadata-and-Actual-Markdown-Content
@@ -5,7 +7,13 @@ import getAllPosts from "../../lib/posts.util";
 
 const AllPostsPage = (props) => {
   return (
-    <AllPosts posts={props.all} />
+    <>
+      <Head>
+        <title>Aras' Posts</title>
+        <meta name="description" content="Web Development Blogs" />
+      </Head>
+      <AllPosts posts={props.all} />
+    </>
   );
 };
 
