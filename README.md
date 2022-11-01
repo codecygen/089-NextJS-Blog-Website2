@@ -19,6 +19,8 @@ There are 2 ways of deployment. These are,
 - Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
 - Re-deployment needed if code changes or you don't use revalidations and need page updates.
 
+### 1.1.4 Deployment
+
 #### Full Static Build
 - **next export** command. This has to be added to the **"scripts"** section of the **package.json**. The entry should be written as **"export": "next export"**.
 - Produces 100% static app (HTML, CSS, JS): No NodeJS server required.
