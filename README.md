@@ -1,6 +1,31 @@
 # Blog Project
 
-## 1.1 Optimization and Deployment
+## 1.1 Optimization and Deployment Steps for Next.js
+
+### 1.1.1 Manual Optimization
+- Add page metadata, optimize code, remove unnecessary dependencies.
+- Use environment variables for data (e.g database credentials, API keys etc.)
+
+### 1.1.2 Testing
+- Do a test buld and test the production-ready app locally or on a test server.
+
+### 1.1.3 Automatic Optimization
+
+There are 2 ways of deployment. These are,
+
+#### Standard Build
+- **next build** command.
+- Produces optimized production bundles and a server-side app. Requires NodeJS server.
+- Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
+- Re-deployment needed if code changes or you don't use revalidations and need page updates.
+
+#### Full Static Build
+- **next export** command. This has to be added to the **"scripts"** section of the **package.json**. The entry should be written as **"export": "next export"**.
+- Produces 100% static app (HTML, CSS, JS): No NodeJS server required.
+- Does not work if your app uses API routes, server-side pages or wants to use page revalidations.
+- Re-deployment needed for all code and content changes.
+
+## 1.2 Other Deployment Notes Specific to this Project
 If you are using npm package, use the following instructions:
 - Create **.env.local** file to the root directory of the project. The only environmental variable for the file is **MONGODB_ATLAS_LINK**. Once the database is created, you have to find the link to "Connect your application". Then add it into the .env.local file. An example of the content of env.local file is given down below.
 
@@ -18,21 +43,7 @@ MONGODB_ATLAS_LINK=mongodb+srv://<username>:<password>@some-blog.8hxik6m.mongodb
 
 - If you are in development environment, do not forget to restart server once you create the .env.local file.
 
-===========================================================
-
-There are 2 ways of deployment. These are,
-
-### Standard Build
-- **next build** command.
-- Produces optimized production bundles and a server-side app. Requires NodeJS server.
-- Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
-- Re-deploy needed if code changes or you don't use revalidations and need page updates.
-
-### Full Static Build
-- **next export** command. This has to be added to the **"scripts"** section of the **package.json**. The entry should be written as **"export": "next export"**.
-- Produces 100% static app (HTML, CSS, JS): No NodeJS server required.
-
-## 1.2 Keywords
+## 1.3 Keywords
 ### Markdown-To-HTML
 ### Read-from-Markdown-Convert-HTML
 The npm package name to read from an md file and convert it to an HTML is **react-markdown**. Make sure to install version 5.0.3. **npm i react-markdown@5.0.3**
