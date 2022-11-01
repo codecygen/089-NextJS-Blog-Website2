@@ -18,6 +18,8 @@ MONGODB_ATLAS_LINK=mongodb+srv://<username>:<password>@some-blog.8hxik6m.mongodb
 
 - If you are in development environment, do not forget to restart server once you create the .env.local file.
 
+===========================================================
+
 There are 2 ways of deployment. These are,
 
 ### Standard Build
