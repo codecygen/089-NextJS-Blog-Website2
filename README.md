@@ -14,18 +14,56 @@
 There are 2 ways of deployment. These are,
 
 #### Standard Build
-- **next build** command.
+- **next build** or **npm run build** command.
 - Produces optimized production bundles and a server-side app. Requires NodeJS server.
 - Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
 - Re-deployment needed if code changes or you don't use revalidations and need page updates.
 
-### 1.1.4 Deployment
+```console
+Why you should do it regularly:
+https://github.com/browserslist/browserslist#browsers-data-updating
+info  - Creating an optimized production build  
+info  - Compiled successfully
+info  - Collecting page data  
+info  - Generating static pages (6/6)
+info  - Finalizing page optimization  
+
+Page                                                           Size     First Load JS
+┌ ● /                                                          1.97 kB        73.2 kB
+├   └ css/1e9fb58c203b31c361f2.css                             585 B
+├   /_app                                                      0 B            66.8 kB
+├ ○ /404                                                       3.46 kB        70.3 kB
+├ λ /api/contact                                               0 B            66.8 kB
+├ ○ /contact                                                   3.39 kB        70.2 kB
+├   └ css/dce8f9d13dbc51bac6a3.css                             715 B
+├ ● /posts                                                     1.82 kB        73.1 kB
+├   └ css/5c143cb7d99287f02612.css                             443 B
+└ ● /posts/[slug]                                              284 kB          355 kB
+    └ css/71aaee323b3ce5ce4be9.css                             452 B
+    ├ /posts/another-blog-post
+    └ /posts/new-blog-post
++ First Load JS shared by all                                  66.8 kB
+  ├ chunks/365e2c93ee4512644b764144cea69ab374a79a06.ae833e.js  10.7 kB
+  ├ chunks/ab991c0a337eaf832b1db71bb0078ca34bd7cb6b.37a42c.js  3.17 kB
+  ├ chunks/framework.0c2392.js                                 42.1 kB
+  ├ chunks/main.901106.js                                      6.32 kB
+  ├ chunks/pages/_app.b425e1.js                                3.8 kB
+  ├ chunks/webpack.50bee0.js                                   751 B
+  └ css/d4cd8750a77b2ca7160e.css                               797 B
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
+   (ISR)     incremental static regeneration (uses revalidate in getStaticProps)
+```
 
 #### Full Static Build
 - **next export** command. This has to be added to the **"scripts"** section of the **package.json**. The entry should be written as **"export": "next export"**.
 - Produces 100% static app (HTML, CSS, JS): No NodeJS server required.
 - Does not work if your app uses API routes, server-side pages or wants to use page revalidations.
 - Re-deployment needed for all code and content changes.
+
+### 1.1.4 Deployment
 
 ## 1.2 Other Deployment Notes Specific to this Project
 If you are using npm package, use the following instructions:
