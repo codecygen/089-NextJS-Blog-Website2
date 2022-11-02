@@ -19,7 +19,7 @@ There are 2 ways of deployment. These are,
 - Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
 - Re-deployment needed if code changes or you don't use revalidations and need page updates.
 
-```console
+```s
 Why you should do it regularly:
 https://github.com/browserslist/browserslist#browsers-data-updating
 info  - Creating an optimized production build  
@@ -55,6 +55,11 @@ Page                                                           Size     First Lo
 ○  (Static)  automatically rendered as static HTML (uses no initial props)
 ●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
    (ISR)     incremental static regeneration (uses revalidate in getStaticProps)
+```
+
+The console output above normally highlighted "355kb" with red. This is an indication that we might have heavy dependencies installed for the slug page.
+```
+/posts/[slug]                                              284 kB          355 kB
 ```
 
 #### Full Static Build
