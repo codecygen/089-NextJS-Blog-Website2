@@ -6,6 +6,11 @@ const contactSubmitHandler = async (req, res) => {
     const { email, name, message } = req.body;
     const mongoAtlasLink = process.env.MONGODB_ATLAS_LINK;
 
+
+    // Environmental-Variable-Storing-in-next.config.js-File
+    const nextConfigJsEnvVariables = `${process.env.mongodb_username}${process.env.mongodb_password}${process.env.mongodb_clustername}${process.env.mongodb_database}`;
+    console.log(nextConfigJsEnvVariables);
+
     if (req.method === 'POST') {
         if (
             !email ||
