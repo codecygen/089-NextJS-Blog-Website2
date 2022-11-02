@@ -40,7 +40,7 @@ Page                                                           Size     First Lo
 ├   └ css/dce8f9d13dbc51bac6a3.css                             715 B
 ├ ● /posts                                                     1.82 kB        73.1 kB
 ├   └ css/5c143cb7d99287f02612.css                             443 B
-└ ● /posts/[slug]                                              284 kB          355 kB - text in red
+└ ● /posts/[slug]                                              284 kB          355 kB
     └ css/71aaee323b3ce5ce4be9.css                             452 B
     ├ /posts/another-blog-post
     └ /posts/new-blog-post
@@ -61,7 +61,7 @@ Page                                                           Size     First Lo
 
 The console output above normally highlighted "355kb" with red in the actual Linux terminal. This is an indication that we might have heavy dependencies installed for the slug page.
 ```
-/posts/[slug]                                              284 kB          355 kB - text in red kB
+/posts/[slug]                                              284 kB          355 kB
 ```
 
 #### Full Static Build

@@ -8,8 +8,7 @@ const contactSubmitHandler = async (req, res) => {
 
 
     // Environmental-Variable-Storing-in-next.config.js-File
-    const nextConfigJsEnvVariables = `${process.env.mongodb_username}${process.env.mongodb_password}${process.env.mongodb_clustername}${process.env.mongodb_database}`;
-    console.log(nextConfigJsEnvVariables);
+    // const nextConfigJsEnvVariables = `${process.env.mongodb_username}${process.env.mongodb_password}${process.env.mongodb_clustername}${process.env.mongodb_database}`;
 
     if (req.method === 'POST') {
         if (
