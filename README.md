@@ -19,6 +19,8 @@ There are 2 ways of deployment. These are,
 - Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
 - Re-deployment needed if code changes or you don't use revalidations and need page updates.
 
+For this specific case, once we run "npm run build" command, the output down on the bottom is displayed.
+
 ```s
 Why you should do it regularly:
 https://github.com/browserslist/browserslist#browsers-data-updating
@@ -57,7 +59,7 @@ Page                                                           Size     First Lo
    (ISR)     incremental static regeneration (uses revalidate in getStaticProps)
 ```
 
-The console output above normally highlighted "355kb" with red. This is an indication that we might have heavy dependencies installed for the slug page.
+The console output above normally highlighted "355kb" with red in the actual Linux terminal. This is an indication that we might have heavy dependencies installed for the slug page.
 ```
 /posts/[slug]                                              284 kB          355 kB
 ```
