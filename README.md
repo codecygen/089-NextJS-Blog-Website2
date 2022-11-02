@@ -21,7 +21,7 @@ There are 2 ways of deployment. These are,
 
 For this specific case, once we run "npm run build" command, the output down on the bottom is displayed.
 
-```s
+```diff
 Why you should do it regularly:
 https://github.com/browserslist/browserslist#browsers-data-updating
 info  - Creating an optimized production build  
@@ -40,7 +40,7 @@ Page                                                           Size     First Lo
 ├   └ css/dce8f9d13dbc51bac6a3.css                             715 B
 ├ ● /posts                                                     1.82 kB        73.1 kB
 ├   └ css/5c143cb7d99287f02612.css                             443 B
-└ ● /posts/[slug]                                              284 kB          355 kB
+└ ● /posts/[slug]                                              284 kB          355 kB - text in red
     └ css/71aaee323b3ce5ce4be9.css                             452 B
     ├ /posts/another-blog-post
     └ /posts/new-blog-post
@@ -61,7 +61,7 @@ Page                                                           Size     First Lo
 
 The console output above normally highlighted "355kb" with red in the actual Linux terminal. This is an indication that we might have heavy dependencies installed for the slug page.
 ```
-/posts/[slug]                                              284 kB          355 kB
+/posts/[slug]                                              284 kB          355 kB - text in red kB
 ```
 
 #### Full Static Build
