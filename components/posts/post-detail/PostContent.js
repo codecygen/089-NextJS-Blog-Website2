@@ -4,17 +4,29 @@ import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 
 // react-syntax-higlighter-Code-Snippet-Styling
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// Instead of importing Prism, we import lighter version to optimize the
+// PostContent page.
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 
 // react-syntax-higlighter-Code-Snippet-Styling
 // not react-syntax-highlighter/dist/esm/styles/prism
 // but cjs because the code will execute on the server side
 // atomDark is a theme.
-import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// This is alternative method to optimize the code. Instead of importing all
+// sets of packages, we import only atomDark theme.
+import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
+import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 
 import PostHeader from './PostHeader';
 
 import classes from './PostContent.module.css';
+
+// These are used for a much ligher code.
+SyntaxHighlighter.registerLanguage('js', js);
+SyntaxHighlighter.registerLanguage('css', css);
 
 const PostContent = (props) => {
   const { post } = props;

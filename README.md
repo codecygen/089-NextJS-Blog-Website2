@@ -14,7 +14,7 @@
 There are 2 ways of deployment. These are,
 
 #### Standard Build
-- **next build** or **npm run build** command.
+- **npm run build** command to build the production files which will initiate **next build** as per stated in **package.json**.
 - Produces optimized production bundles and a server-side app. Requires NodeJS server.
 - Pages are pre-rendered (if possible), but NodeJS server is required for API routes, server-side pages and page revalidations.
 - Re-deployment needed if code changes or you don't use revalidations and need page updates.
@@ -59,10 +59,12 @@ Page                                                           Size     First Lo
    (ISR)     incremental static regeneration (uses revalidate in getStaticProps)
 ```
 
-The console output above normally highlighted "355kb" with red in the actual Linux terminal. This is an indication that we might have heavy dependencies installed for the slug page.
+The console output above normally highlighted "355kb" with red in the actual Linux terminal. This is an indication that we might have heavy dependencies installed for the post details page. We can still deploy that but it is a clearly indication that the situation is not optimal.
 ```
 /posts/[slug]                                              284 kB          355 kB
 ```
+
+Much lighter versions of codes can be used inside PostContent.js.
 
 #### Full Static Build
 - **next export** command. This has to be added to the **"scripts"** section of the **package.json**. The entry should be written as **"export": "next export"**.
@@ -71,6 +73,7 @@ The console output above normally highlighted "355kb" with red in the actual Lin
 - Re-deployment needed for all code and content changes.
 
 ### 1.1.4 Deployment
+- Once **npm run build** is conducted to create production files under **./.next** folder, we can run **npm start** to see how the production server will behave like.
 
 ## 1.2 Other Deployment Notes Specific to this Project
 If you are using npm package, use the following instructions:
