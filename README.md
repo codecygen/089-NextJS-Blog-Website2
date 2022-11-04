@@ -74,6 +74,7 @@ Much lighter versions of codes can be used inside PostContent.js.
 
 ### 1.1.4 Deployment
 - Once **npm run build** is conducted to create production files under **./.next** folder, we can run **npm start** to see how the production server will behave like.
+- Deployment can be done using Vercel. For NextJS apps, Vercel is a good choice.
 
 ## 1.2 Other Deployment Notes Specific to this Project
 If you are using npm package, use the following instructions:
