@@ -17,7 +17,6 @@ const contactSubmitHandler = async (req, res) => {
             !name || name.trim() === '' ||
             !message || message.trim === ''
         ) {
-            console.log('aras');
             res.status(422).json({ message: 'Invalid input!' });
             return;
         }
