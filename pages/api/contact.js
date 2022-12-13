@@ -1,4 +1,4 @@
-// Back-End-Posting-Darta-to-Database-Error-Handling-Data-Verification
+// Back-End-Posting-Data-to-Database-Error-Handling-Data-Verification
 
 import { MongoClient } from "mongodb";
 

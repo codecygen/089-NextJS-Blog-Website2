@@ -152,7 +152,7 @@ As stated in the keyword, if we search we can see gray-matter npm library has a 
 react-syntax-higlighter npm library is useful if you have a code snippet in your markdown file. The react-syntax-higlighter npm library will be used to style the code snippet when it is transformed into html.
 ### Front-End-Fetching-Error-Handling-Data-Verification-and-User-Notification
 Front end data sending. This section is for contact info sending to the database. It covers all the error handling and user notification about if the data is already sent or if there has been an error. The data is also verified if the email and message sent correctly.
-### Back-End-Posting-Darta-to-Database-Error-Handling-Data-Verification
+### Back-End-Posting-Data-to-Database-Error-Handling-Data-Verification
 Backend data sending. This section is for contact info sending to the database. It covers all the error handling about if the data is already sent or if there has been an error. The data is also verified if the email and message sent correctly.
 ### Environmental-Variable-Storing-in-next.config.js-File
 Environmental variables can be stored inside **.env.local** in the root directory of a NextJS project, as well as inside **next.config.js**
